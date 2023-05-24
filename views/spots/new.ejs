@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %> 
+
+    <div class="row">
+        <h1 class="text-center">Add a ChillSpot</h1>
+        <div class="col-6 offset-3">
+            <form action="/list" method="POST" class="validated-form" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" name="spot[name]" id="name">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="about">About</label>
+                    <input class="form-control" type="text" name="spot[about]" id="about">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="address">Address Line 1(Street & Street No)</label>
+                    <input class="form-control" type="text" name="spot[address]" id="address">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Address Line 2(City, State)</label>
+                    <input class="form-control" type="text" name="spot[location]" id="location">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label"></label>
+                    <input class="form-control form-control-sm" id="image" type="file" name="image" multiple>
+                </div>
+                <div class="mb-3">
+                <label class="form-label" for="price"> Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="spot[price]">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+                <div class="mb-3">
+                <button class="btn btn-success">Add Chill Spot</button>
+                </div>
+                <a href="/list">All Items in Inventory</a>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') %> 
+<link rel="stylesheet" href="/stylesheets/show.css">
+<body>
+      <main>
+        <h5 class="numero">Home / <b> New In</b> / <b> Women's Fashion </b></h5>
+        <div class="nunew">
+            <div class="nuone">
+                <% for(let img of spot.image) {%> 
+                    <img src="<%= img.url %>" class="nunewone" alt="...">
+                    <img src="<%= img.url %>" class="nunewtwo" alt="...">
+                    <img src="<%= img.url %>" class="nunewthree" alt="...">
+                    <img src="<%= img.url %>" class="nunewfour" alt="...">
+                    <% } %>
+                <!-- <img src="images/Rectangle 128-1.png" alt="" class="nunewone">
+                <img src="images/Rectangle 129-1.png" alt="" class="nunewtwo">
+                <img src="images/Rectangle 130-1.png" alt="" class="nunewthree">
+                <img src="images/Rectangle 130-1.png" alt="" class="nunewfour"> -->
+
+            </div>
+            <div class="nutwo">
+            <h5><b> <%= spot.name %> </b></h5>
+            <h6> <%= spot.location %> </h6>
+            <h6><%= spot.about %> </h6>
+            <h5><b>N<%=spot.price %></b></h5>
+            <p>Check Reviews</p> <hr>
+
+            <div class="nuttonall">
+            <div class="nutton1">
+                <button> <a style="text-decoration: none; color: white;" href="/list/<%=spot._id%>/edit ">EDIT</a></button>
+            </div>
+            <div>
+            <form action="/list/<%=spot._id%>?_method=DELETE" method="POST">
+                <button class="nutton2" style="width: 10px;" >DELETE</button>
+             </form>
+            </div>
+         </div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis quia veniam numquam quidem nostrum nemo eveniet saepe, a obcaecati reprehenderit consectetur, doloremque esse natus est atque ab non animi excepturi!</p> <br>
+            <h6>FABRIC DETAILS</h6>
+            <h6>DELIVERY</h6>
+            </div>
+        </div>
+        <div>
+            <div><h5 class="uno">YOU WILL LOVE THESE TOO</h5> <H5 class="unos">NEW IN</H5></div>
+            <div class="imgss">
+                <div>
+                    <div>
+                        <img src="images/Rectangle 128-1.png" alt="">
+                    </div>
+                        <sub>
+                            <small>Category: Sneakers <span>N200,000</span></small> <br>
+                           <small>Nike AirMax 270</small>
+                       </sub>
+                </div>
+                <div>
+                    <div>
+                        <img src="images/Rectangle 129-1.png" alt="">
+                    </div>
+                        <sub>
+                            <small>Category: Men's Fashion <span>N37,000</span></small> <br>
+                           <small>Reebok TShirt</small>
+                       </sub>
+                </div>
+                <div>
+                    <div>
+                        <img src="images/Rectangle 130-1.png" alt="">
+                    </div>
+                        <sub>
+                            <small>Category: Shoes <span>N105,000</span></small> <br>
+                           <small> Zara Leather Monk Shoes</small>
+                       </sub>
+                </div>
+            </div>
+        </div>
+      </main>
+
+</body>
