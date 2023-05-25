@@ -97,15 +97,15 @@ footer h6 {
 }
 
 .imgss img{
-    width: 440px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     margin-top: 25px;
 
 }
 
 .imgss span {
     position: absolute;
-    left: 390px;
+    left: 300px;
     top: 6px;
 }
 
@@ -236,14 +236,14 @@ footer h6 {
 }
 
 .numero {
-    position: absolute;
-    left: 40px;
+    /* position: absolute;
+    left: 40px; */
+    margin-left: 40px;
+
 }
 
 .uno {
-    display: inline;
-    position: absolute;
-    left: 350px;
+    text-align: center;
 }
 
 .unos {
@@ -251,4 +251,5 @@ footer h6 {
     position: absolute;
     left: 720px;
     color: grey;
+
 }

@@ -1,16 +1,32 @@
 <% layout('layouts/boilerplate') %> 
 <link rel="stylesheet" href="/stylesheets/show.css">
+<link rel="stylesheet" href="/stylesheets/stars.css">
+
 <body>
       <main>
-        <h5 class="numero">Home / <b> New In</b> / <b> Women's Fashion </b></h5>
+        <h5 class="numero">Home / <b> All Products</b> / <b><%=spot.name %> </b></h5>
         <div class="nunew">
             <div class="nuone">
-                <% for(let img of spot.image) {%> 
+                <!-- <% for(let img of spot.image) {%> 
                     <img src="<%= img.url %>" class="nunewone" alt="...">
                     <img src="<%= img.url %>" class="nunewtwo" alt="...">
                     <img src="<%= img.url %>" class="nunewthree" alt="...">
                     <img src="<%= img.url %>" class="nunewfour" alt="...">
-                    <% } %>
+                    <% } %> -->
+                    <% if(spot.image.length ==  2) {%>
+                    <img src="<%= spot.image[0].url %>" class="nunewone" alt="...">
+                    <img src="<%= spot.image[1].url %>" class="nunewtwo" alt="...">
+                    <img src="<%= spot.image[0].url %>" class="nunewthree" alt="...">
+                    <img src="<%= spot.image[1].url %>" class="nunewfour" alt="...">
+                        <% } else {%>
+                            <img srcç="<%= spot.image[0].url %>" class="nunewone" alt="...">
+                            <img src="<%= spot.image[1].url %>" class="nunewtwo" alt="...">
+                            <img src="<%= spot.image[2].url %>" class="nunewthree" alt="...">
+                            <img src="<%= spot.image[3].url %>" class="nunewfour" alt="...">
+                            <% } %>
+
+
+
                 <!-- <img src="images/Rectangle 128-1.png" alt="" class="nunewone">
                 <img src="images/Rectangle 129-1.png" alt="" class="nunewtwo">
                 <img src="images/Rectangle 130-1.png" alt="" class="nunewthree">
@@ -34,43 +50,106 @@
              </form>
             </div>
          </div>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis quia veniam numquam quidem nostrum nemo eveniet saepe, a obcaecati reprehenderit consectetur, doloremque esse natus est atque ab non animi excepturi!</p> <br>
-            <h6>FABRIC DETAILS</h6>
-            <h6>DELIVERY</h6>
+            <div id='map' style='width: 400px; height: 300px;'></div>
+            <br>
             </div>
         </div>
+        <div class="col-6 offset-3">
+            <% if(currentUser) { %> 
+                  <form action="/list/<%=spot._id%>/reviews" method="POST" class="mb-5 validated-form" novalidate>
+                      <h2>Leave a Review</h2>
+                      <!-- <div class="mb-3">
+                          <label class="form-label" for="rating">Rating</label>
+                          <input type="range" class="form-range" min="1" max="5" name="review[rating]" id="rating">
+                      </div> -->
+                      <div class="mb-3">
+                          <fieldset class="starability-basic">
+                            <legend>First rating:</legend>
+                            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                          </fieldset>
+                        </div>
+                      <div class="mb-3">
+                          <label class="form-label" for="name">Full Name</label>
+                          <input type="text" class="form-control" name="review[name]" id="body" required>
+                          <div class="valid-feedback">
+                              Looks good!
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label class="form-label" for="body">Review</label>
+                          <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+                          <div class="valid-feedback">
+                              Looks good!
+                          </div>
+                      </div>
+                      <button class="btn-success">Submit</button>
+                    </form>
+                <% } %> 
+                    <% for (let review of spot.reviews) { %> 
+                      <div class="card mb-3">
+                    <div class="mb-3 card-body">
+                      <h5 class="card-title"><%=review.author.username%></h5>
+                      <p class="starability-result" data-rating="<%=review.rating%>">
+                        Rated: <%=review.rating%> stars
+                      </p>
+                      <p class="card-text"><%=review.body%></p>
+                  <% if( currentUser && review.author.equals(currentUser._id)) { %> 
+                      <form action="/list/<%=spot._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                          <Button class="btn btn-sm btn-danger">Delete</Button>
+                      </form>
+                  <% } %> 
+                    </div>
+                  </div>
+                    <% } %>
+              </div>
         <div>
-            <div><h5 class="uno">YOU WILL LOVE THESE TOO</h5> <H5 class="unos">NEW IN</H5></div>
+            <h5 class="uno">YOU WILL LOVE THESE TOO</h5>
             <div class="imgss">
                 <div>
                     <div>
-                        <img src="images/Rectangle 128-1.png" alt="">
+                        <img src="<%=spotss[0].image[0].url%>" alt="">
                     </div>
                         <sub>
-                            <small>Category: Sneakers <span>N200,000</span></small> <br>
-                           <small>Nike AirMax 270</small>
+                            <small><a href="/list/<%=spotss[0]._id %>">View <%=spotss[0].name %></a> <span>N<%=spotss[0].price%></span></small> <br>
                        </sub>
                 </div>
                 <div>
                     <div>
-                        <img src="images/Rectangle 129-1.png" alt="">
+                        <img src="<%=spotss[1].image[0].url%>" alt="">
+
                     </div>
                         <sub>
-                            <small>Category: Men's Fashion <span>N37,000</span></small> <br>
-                           <small>Reebok TShirt</small>
+                            <small><a href="/list/<%=spotss[1]._id %>">View <%=spotss[1].name %></a> <span>N<%=spotss[1].price%></span></small> <br>
                        </sub>
                 </div>
                 <div>
                     <div>
-                        <img src="images/Rectangle 130-1.png" alt="">
+                        <img src="<%=spotss[2].image[0].url%>" alt="">
                     </div>
                         <sub>
-                            <small>Category: Shoes <span>N105,000</span></small> <br>
-                           <small> Zara Leather Monk Shoes</small>
+                            <small><a href="/list/<%=spotss[2]._id %>">View <%=spotss[2].name %></a> <span>N<%=spotss[2].price%></span></small> <br>
                        </sub>
                 </div>
             </div>
         </div>
       </main>
+
+      <script>
+        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+        const spot = <%-JSON.stringify(spot)%>
+  
+      </script>
+  
+      <script src="/javascripts/showPageMap.js"></script>
 
 </body>

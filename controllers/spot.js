@@ -41,12 +41,13 @@ module.exports.showProduct = async (req, res) => {
             path: 'author',
         }
     }).populate('author');
-    console.log(spot)
+    const spotss = await Spot.aggregate([ { $sample: {size: 3} }]) 
+    console.log(spotss)
     if(!spot){
         req.flash('error', 'Cannot find that product!');
         return res.redirect('/list')
     }
-    res.render('spots/show_', { spot })
+    res.render('spots/show_', { spot, spotss })
   }
 
 module.exports.editProductForm = async (req, res) => {
