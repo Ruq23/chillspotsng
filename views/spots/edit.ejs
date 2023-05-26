@@ -20,14 +20,14 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="address">Address Line 1(Street & Street No)</label>
-                    <input class="form-control" type="text" name="spot[address]" id="address">
+                    <input class="form-control" type="text" name="spot[address]" id="address" value="<%=spot.address%>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Address Line 2(City, State)</label>
-                    <input class="form-control" type="text" name="spot[location]" id="location">
+                    <input class="form-control" type="text" name="spot[location]" id="location" value="<%=spot.location%>">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -39,7 +39,7 @@
                 <div class="mb-3">
                 <label class="form-label" for="price"> Price</label>
                 <div class="input-group">
-                    <span class="input-group-text" id="price-label">$</span>
+                    <span class="input-group-text" id="price-label">N</span>
                     <input type="text" class="form-control" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="spot[price]" value="<%=spot.price%>">
                     <div class="valid-feedback">
                         Looks good!

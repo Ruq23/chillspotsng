@@ -30,7 +30,7 @@ module.exports.newProduct = async (req, res, next) => {
     await spot.save();
     console.log(spot)
     // res.send(spot)
-    req.flash('success', 'Sucessfully Added Product to Inventory!');
+    req.flash('success', 'Sucessfully Added Spot to Inventory!');
     res.redirect(`/list/${spot._id}`)
 }
 
@@ -44,7 +44,7 @@ module.exports.showProduct = async (req, res) => {
     const spotss = await Spot.aggregate([ { $sample: {size: 3} }]) 
     console.log(spotss)
     if(!spot){
-        req.flash('error', 'Cannot find that product!');
+        req.flash('error', 'Cannot find that spot!');
         return res.redirect('/list')
     }
     res.render('spots/show_', { spot, spotss })
@@ -53,7 +53,7 @@ module.exports.showProduct = async (req, res) => {
 module.exports.editProductForm = async (req, res) => {
     const spot = await Spot.findById(req.params.id)
     if (!spot) {
-        req.flash('error', 'Cannot find that Product')
+        req.flash('error', 'Cannot find that Spot')
         return redirect ('/list')
     }
     res.render('spots/edit', { spot })
@@ -72,17 +72,17 @@ module.exports.editProduct = async(req, res) => {
    }
 //    console.log(req.body.inventory)
    if(!spot){
-    req.flash('error', 'Cannot find that product!');
+    req.flash('error', 'Cannot find that Spot!');
     return res.redirect('/list')
    }
-   req.flash('success', 'Sucessfully Updated a Product!');
+   req.flash('success', 'Sucessfully Updated a Spot!');
    res.redirect(`/list/${spot._id}`)
 }
 
 module.exports.destroy = async(req, res) => {
     const { id } = req.params;
     await Spot.findByIdAndDelete(id);
-   req.flash('success', 'Product Deleted!');
+   req.flash('success', 'Spot Deleted!');
     res.redirect('/list');
 }
 

@@ -7,23 +7,18 @@
         <h5 class="numero">Home / <b> All Products</b> / <b><%=spot.name %> </b></h5>
         <div class="nunew">
             <div class="nuone">
-                <!-- <% for(let img of spot.image) {%> 
-                    <img src="<%= img.url %>" class="nunewone" alt="...">
-                    <img src="<%= img.url %>" class="nunewtwo" alt="...">
-                    <img src="<%= img.url %>" class="nunewthree" alt="...">
-                    <img src="<%= img.url %>" class="nunewfour" alt="...">
-                    <% } %> -->
+               
                     <% if(spot.image.length ==  2) {%>
                     <img src="<%= spot.image[0].url %>" class="nunewone" alt="...">
                     <img src="<%= spot.image[1].url %>" class="nunewtwo" alt="...">
                     <img src="<%= spot.image[0].url %>" class="nunewthree" alt="...">
                     <img src="<%= spot.image[1].url %>" class="nunewfour" alt="...">
-                        <% } else {%>
-                            <img srcç="<%= spot.image[0].url %>" class="nunewone" alt="...">
-                            <img src="<%= spot.image[1].url %>" class="nunewtwo" alt="...">
-                            <img src="<%= spot.image[2].url %>" class="nunewthree" alt="...">
-                            <img src="<%= spot.image[3].url %>" class="nunewfour" alt="...">
-                            <% } %>
+                    <% } else {%>
+                    <img src="<%= spot.image[0].url %>" class="nunewone" alt="...">
+                    <img src="<%= spot.image[1].url %>" class="nunewtwo" alt="...">
+                    <img src="<%= spot.image[2].url %>" class="nunewthree" alt="...">
+                    <img src="<%= spot.image[3].url %>" class="nunewfour" alt="...">
+                    <% } %>
 
 
 
@@ -36,13 +31,13 @@
             <div class="nutwo">
             <h5><b> <%= spot.name %> </b></h5>
             <h6> <%= spot.location %> </h6>
-            <h6><%= spot.about %> </h6>
-            <h5><b>N<%=spot.price %></b></h5>
-            <p>Check Reviews</p> <hr>
+            <p><%= spot.about %> </p>
+            <p>Average Spend: <b>N<%=spot.price %></b></p>
+             <hr>
 
             <div class="nuttonall">
             <div class="nutton1">
-                <button> <a style="text-decoration: none; color: white;" href="/list/<%=spot._id%>/edit ">EDIT</a></button>
+                <button> <a style="text-decoration: none; color: white;" href="/list/<%=spot._id%>/edit">EDIT</a></button>
             </div>
             <div>
             <form action="/list/<%=spot._id%>?_method=DELETE" method="POST">
@@ -98,7 +93,7 @@
                     <% for (let review of spot.reviews) { %> 
                       <div class="card mb-3">
                     <div class="mb-3 card-body">
-                      <h5 class="card-title"><%=review.author.username%></h5>
+                      <h5 class="card-title"><%=review.name%></h5>
                       <p class="starability-result" data-rating="<%=review.rating%>">
                         Rated: <%=review.rating%> stars
                       </p>
@@ -111,7 +106,7 @@
                     </div>
                   </div>
                     <% } %>
-              </div>
+        </div>
         <div>
             <h5 class="uno">YOU WILL LOVE THESE TOO</h5>
             <div class="imgss">

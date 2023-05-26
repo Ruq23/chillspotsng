@@ -26,11 +26,18 @@ const userRoutes = require('./routes/users')
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const flash = require('connect-flash');
-const { isAuthor } = require('./middleware.js');
+const { isAuthor } = require('./middleware.js')
+const port = process.env.PORT || 3000;
+
 // const mongoStore = require('connect-mongo')(session);
 
 
-mongoose.connect('mongodb://localhost:27017/chillSpotng', {
+// mongoose.connect('mongodb://localhost:27017/chillSpotng', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+mongoose.connect("mongodb://mongo:eqeDsY0CelNL0xjvomcf@containers-us-west-98.railway.app:6560", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -91,9 +98,9 @@ app.use('/list', spotRoutes);
 app.use('/list/:id/reviews', reviewRoutes)
 
 
-// app.get('/', async(req, res) => {
-//     res.send('Hi')
-// })
+app.get('/', async(req, res) => {
+    res.render('home')
+})
 
 
 
@@ -116,6 +123,6 @@ app.use((err, req, res, next) => {
     // res.status(statusCode).send('Error')
 })
 
-app.listen(3000, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log('Serving on port 3000')
 })
