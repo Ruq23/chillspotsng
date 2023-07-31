@@ -254,3 +254,36 @@ footer h6 {
     color: grey;
 
 }
+
+#carouselExampleControls{
+    display: none;
+   }
+
+
+
+    @media screen and (max-width: 480px) {
+       
+        #carouselExampleControls{
+            display: block;
+            width: 500px;
+            height: 100px;
+           
+           }
+
+
+       .nuone {
+        display: none;
+       }
+
+       #map {
+        display: none;
+       }
+
+       .imgss {
+        display: none;
+       }
+
+       #caroimg {
+        width: 200px !important;
+       }
+    }
