@@ -32,6 +32,7 @@ module.exports.spotSchema = Joi.object({
         address: Joi.string().required().escapeHTML(),
         // image: Joi.string().required(),
         price: Joi.number().required().min(0),
+        category: Joi.string().required(),
     }).required(),
     deleteImages: Joi.array()
 })

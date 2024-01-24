@@ -5,7 +5,7 @@ const mapBoxToken = process.env.MAPBOX_TOKEN
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
 
 
-// const categories = ['Electronics', 'Gadgets', 'Clothing', 'Automobile', 'Furniture', 'Food']
+const categories = ['Lounge / Bar', 'Restaurants', 'Beach Houses', 'Tourist Attraction', 'Art House', 'Beach', 'Cinema', 'Club']
 
 module.exports.index = async (req, res) => {
     const spots = await Spot.find({});
@@ -14,7 +14,7 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.newProductForm = (req, res) => {
-    res.render('spots/new')
+    res.render('spots/new', {categories})
 }
 
 module.exports.newProduct = async (req, res, next) => {
@@ -56,7 +56,7 @@ module.exports.editProductForm = async (req, res) => {
         req.flash('error', 'Cannot find that Spot')
         return redirect ('/list')
     }
-    res.render('spots/edit', { spot })
+    res.render('spots/edit', { spot, categories })
   }
 
 module.exports.editProduct = async(req, res) => {

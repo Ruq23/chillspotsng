@@ -41,6 +41,11 @@ const SpotSchema = new Schema ({
             required: true
         }
     },
+    category: {
+        type: String,
+        required: true,
+        enum:['Lounge / Bar', 'Restaurants', 'Beach Houses', 'Tourist Attraction', 'Art House', 'Beach', 'Cinema', 'Club'],
+    },
     reviews: [
         {
             type: Schema.Types.ObjectId,

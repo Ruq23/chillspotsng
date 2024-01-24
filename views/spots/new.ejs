@@ -19,6 +19,17 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="about">Category</label>
+                    <select name="spot[category]" id="category">
+                        <% for(let category of categories) { %> 
+                            <option value="<%=category%>"><%=category%></option>
+                        <% } %> 
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="address">Address Line 1(Street & Street No)</label>
                     <input class="form-control" type="text" name="spot[address]" id="address">
                     <div class="valid-feedback">
