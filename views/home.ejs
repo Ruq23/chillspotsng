@@ -44,7 +44,72 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body> -->
-<p class="text-red-500">Hi Hi Hi Hey Hey !!</p>
-<p>Hello</p>
+<body>
+     <!-- navbar -->
+     <nav class="relative container mx-1 p-6">
+        <!-- flex container -->
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="pt-2">
+                <img src="/images/Logo1010.png" alt=""> 
+            </div>
+            <!-- Menu Items -->
+            <div class="hidden space-x-8 md:flex">
+                <a href="#" class="hover:text-darkGrayishBlue">Home</a>
+                <a href="#" class="hover:text-darkGrayishBlue">Discover</a>
+                <a href="#" class="hover:text-darkGrayishBlue">Reviews</a>
+            </div>
+            <div class="space-x-4">
+                <a href="">Sign Up</a>
+                <a href="">Log In</a>
+            </div>
+            <!-- Button -->
+            <!-- <a href="" class="hidden p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block">Get Started</a> -->
+              <!-- Hamburger Icon  -->
+        <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+        </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden">
+            <div id="menu" class="absolute flex-col items-center self-end py-8 mt-10 space-y-6 hidden font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+                <a href="">Pricing</a>
+                <a href="">Product</a>
+                <a href="">About Us</a>
+                <a href="">Careers</a>
+                <a href="">Community</a>
+            </div>
+        </div>
+</nav>
+<section class="relative container p-6">
+    <div class="flex justify-between">
+    <div class="ml-28" >
+        <p class="text-4xl max-w-md font-bold tracking-wide leading-snug [word-spacing:2px]">Discover Your Perfect Chillspot to unwind and unplug</p>
+        <p class="font-extralight text-sm max-w-xl">Discover your happy place, whether it's a serene escape or a lively hangout spot, by finding the perfect place to relax, unwind, and recharge.</p>
+
+        <form class="mt-8">   
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for spots" required>
+                <button type="submit" class="text-black absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-landingGreen dark:hover:bg-#89C878 dark:focus:ring-blue-800">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <img src="/images/Group.png" alt="">
+    </div>
+</div>
+</section>
+</body>
+<!-- <p class="text-red-500">Hi Hi Hi Hey Hey !!</p>
+<p>Hello</p> -->
 
 </html>
